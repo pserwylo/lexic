@@ -1,0 +1,46 @@
+#
+# These numbers represent the frequency of each character in the dictionary.
+#
+# When a letter is found in a word:
+#  - If once, the 1st probability is incremented by 1.
+#  - If twice, the 1st probability is incremented by 2, and the 2nd probability by 1, etc.
+#
+# When generating 100 4x4 boards, the following number of words were observed:
+#   Min: 20, mean: 71, max: 192, stddev: 39
+#
+
+a 84290 20808 1496 23
+b 18694 653 4
+c 35031 2746 69
+d 26177 1349 3
+e 98500 22545 1662 8
+f 15189 2468 33
+g 20402 1006 10
+h 12863 328 5
+i 75288 14922 1029 40
+j 2993 8
+k 933 58
+l 40736 5595 146 1
+m 27044 2065 41
+n 56411 9562 728 18
+o 53701 5642 150
+p 25942 2253 4
+q 5298 17
+r 77681 15641 938 9
+s 76003 19784 4009 342 31 1
+t 61217 11290 963 26
+u 43588 3073 58 1
+v 13561 310
+w 247 2
+x 3786 11
+y 4607 32
+z 12786 207 10
+â 9677 128
+ç 1225
+è 3120
+é 42563 5544 290 12
+ê 1483
+î 1630 1
+ï 508 2
+ô 659
+û 867
