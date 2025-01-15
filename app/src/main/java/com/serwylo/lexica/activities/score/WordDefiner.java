@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 
 import androidx.annotation.NonNull;
+import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.preference.PreferenceManager;
 
 import com.serwylo.lexica.lang.Language;
@@ -20,7 +21,7 @@ public class WordDefiner {
 
     private String definitionProvider;
 
-    WordDefiner(@NonNull Context context, @NonNull Language language) {
+    public WordDefiner(@NonNull Context context, @NonNull Language language) {
         this.context = context;
         this.language = language;
 
@@ -30,7 +31,7 @@ public class WordDefiner {
         definitionProvider = prefs.getString("definitionProvider", "duckduckgo");
     }
 
-    public void define(@NonNull String word) {
+    public boolean define(@NonNull String word) {
         Intent intent;
         switch (definitionProvider) {
             case "aard2":
@@ -50,14 +51,16 @@ public class WordDefiner {
         } else {
             searchWordOnline(word);
         }
+
+        return true;
     }
 
     private void searchWordOnline(@NonNull String word) {
+        CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
         String url = language.getDefinitionUrl();
-        Intent intent = new Intent(Intent.ACTION_VIEW);
+        CustomTabsIntent intent = builder.build();
         Uri u = Uri.parse(String.format(url, word));
-        intent.setData(u);
-        context.startActivity(intent);
+        intent.launchUrl(context, u);
     }
 }
 

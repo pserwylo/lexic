@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.serwylo.lexica.ThemeManager
 import com.serwylo.lexica.Util
+import com.serwylo.lexica.activities.score.WordDefiner
 import com.serwylo.lexica.databinding.FoundWordBinding
 import com.serwylo.lexica.databinding.FoundWordsBinding
 import com.serwylo.lexica.db.*
@@ -87,6 +88,7 @@ class FoundWordsActivity : AppCompatActivity() {
 
         fun bind(word: String) {
             binding.text1.text = word
+            binding.text1.setOnLongClickListener { WordDefiner(this@FoundWordsActivity, selectedLanguage).define(binding.text1.text.toString()) }
         }
 
     }
